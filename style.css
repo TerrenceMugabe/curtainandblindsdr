@@ -140,7 +140,7 @@ em { font-style: italic; }
 .nav-links a:hover { color:var(--ink); }
 .nav-cta { display:flex; align-items:center; gap:10px; }
 .nav-cta .btn { padding:10px 18px; font-size:.68rem; }
-.nav-instagram { display:flex; align-items:center; justify-content:center; width:32px; height:32px; border:1px solid var(--rule-dark); color:var(--ink-muted); transition:border-color .2s, color .2s; }
+.nav-instagram { display:flex; align-items:center; justify-content:center; width:32px; height:32px; border:1px solid var(--rule-dark); color:#de20ed; transition:border-color .2s, color .2s; }
 .nav-instagram:hover { border-color:var(--terra); color:var(--terra); }
 .nav-instagram svg { width:13px; height:13px; }
 @media (max-width:960px){ .nav-links{ display:none; } .nav-cta .btn-outline-slate{ display:none; } }
