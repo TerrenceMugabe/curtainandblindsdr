@@ -599,3 +599,30 @@ em { font-style: italic; }
   width: 18px;
   height: 18px;
 }
+
+/* Desktop: static mosaic grid, no carousel */
+@media (min-width: 901px) {
+  .gallery-carousel-wrap { overflow: visible; }
+
+  .gallery-track {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 240px 240px;
+    gap: 3px;
+    height: auto;
+    transform: none !important;
+    transition: none;
+  }
+
+  .gallery-slide {
+    flex: unset;
+    height: auto;
+    min-height: 240px;
+  }
+
+  .gallery-slide:nth-child(1) { grid-row: span 2; }
+  .gallery-slide:nth-child(5) { grid-column: span 2; }
+
+  .gc-arrow,
+  .gc-dots { display: none !important; }
+}
