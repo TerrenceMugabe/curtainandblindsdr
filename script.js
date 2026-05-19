@@ -1,3 +1,4 @@
+// ── Scroll Reveal ──
 const revealEls = document.querySelectorAll('[data-reveal]');
 const revealObs = new IntersectionObserver((entries) => {
   entries.forEach(e => {
@@ -23,7 +24,7 @@ if (reviewsTrack && reviewDots.length) {
   });
 }
 
-// ── Gallery Carousel ──
+// ── Gallery ──
 (function () {
   const track    = document.getElementById('galleryTrack');
   const slides   = track ? Array.from(track.querySelectorAll('.gallery-slide')) : [];
@@ -33,21 +34,23 @@ if (reviewsTrack && reviewDots.length) {
 
   if (!track || !slides.length) return;
 
-  function visibleCount() {
-    const w = window.innerWidth;
-    if (w <= 560) return 1;
-    if (w <= 900) return 2;
-    return 3;
-  }
+  function isMobile() { return window.innerWidth <= 900; }
 
+  // ── Carousel (mobile only) ──
   let current = 0;
+
+  function visibleCount() {
+    return window.innerWidth <= 560 ? 1 : 2;
+  }
 
   function totalPages() {
     return Math.ceil(slides.length / visibleCount());
   }
 
   function buildDots() {
+    if (!dotsWrap) return;
     dotsWrap.innerHTML = '';
+    if (!isMobile()) return;
     for (let i = 0; i < totalPages(); i++) {
       const d = document.createElement('button');
       d.className = 'gc-dot' + (i === 0 ? ' active' : '');
@@ -58,27 +61,44 @@ if (reviewsTrack && reviewDots.length) {
   }
 
   function goTo(page) {
+    if (!isMobile()) return;
     const pages = totalPages();
     current = Math.max(0, Math.min(page, pages - 1));
-
     const wrapW  = track.parentElement.offsetWidth;
     const offset = current * wrapW;
-
     track.style.transform = `translateX(-${offset}px)`;
-
     document.querySelectorAll('.gc-dot').forEach((d, i) => d.classList.toggle('active', i === current));
     if (prevBtn) prevBtn.disabled = current === 0;
     if (nextBtn) nextBtn.disabled = current >= pages - 1;
   }
 
+  function resetCarousel() {
+    track.style.transform = 'translateX(0)';
+    current = 0;
+  }
+
+  function applyLayout() {
+    if (isMobile()) {
+      if (prevBtn) prevBtn.style.display = '';
+      if (nextBtn) nextBtn.style.display = '';
+      if (dotsWrap) dotsWrap.style.display = '';
+      buildDots();
+      goTo(0);
+    } else {
+      if (prevBtn) prevBtn.style.display = 'none';
+      if (nextBtn) nextBtn.style.display = 'none';
+      if (dotsWrap) dotsWrap.style.display = 'none';
+      resetCarousel();
+    }
+  }
+
   prevBtn && prevBtn.addEventListener('click', () => goTo(current - 1));
   nextBtn && nextBtn.addEventListener('click', () => goTo(current + 1));
 
-  buildDots();
-  goTo(0);
-  window.addEventListener('resize', () => { buildDots(); goTo(0); });
+  applyLayout();
+  window.addEventListener('resize', applyLayout);
 
-  // ── Lightbox ──
+  // ── Lightbox (all screen sizes) ──
   const lb      = document.getElementById('lightbox');
   const lbImg   = document.getElementById('lbImg');
   const lbCap   = document.getElementById('lbCaption');
