@@ -620,8 +620,8 @@ em { font-style: italic; }
     min-height: 240px;
   }
 
-  .gallery-slide:nth-child(1) { grid-row: span 2; }
-  .gallery-slide:nth-child(5) { grid-column: span 2; }
+  .gallery-slide:nth-child(1) { grid-row: span 1; }
+  .gallery-slide:nth-child(5) { grid-column: span 1; }
 
   .gc-arrow,
   .gc-dots { display: none !important; }
