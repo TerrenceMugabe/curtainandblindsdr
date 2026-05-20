@@ -288,7 +288,7 @@ em { font-style: italic; }
 .product-cell.featured h3 { color:#fff; font-size:1.8rem; font-weight:400; margin-bottom:10px; line-height:1.1; }
 .product-cell.featured p  { color:rgba(255,255,255,.7); font-size:.875rem; font-weight:300; line-height:1.8; }
 .pc-features { margin-top:20px; display:flex; flex-direction:column; gap:9px; }
-.pc-feature { display:flex; align-items:flex-start; gap:12px; font-size:.82rem; font-weight:300; line-height:1.5; color:rgba(255,255,255,.65); }
+.pc-feature { display:flex; align-items:flex-start; gap:12px; font-size:.82rem; font-weight:300; line-height:1.5; color:#ffffffe8; }
 .pc-feature::before { content:''; width:14px; height:1px; background:var(--gold); flex-shrink:0; margin-top:10px; }
 .pc-marker { width:34px; height:34px; border:1px solid var(--rule-dark); display:flex; align-items:center; justify-content:center; margin-bottom:16px; color:var(--slate); transition:border-color .25s, color .25s; }
 .product-cell:hover .pc-marker { border-color:var(--terra); color:var(--terra); }
