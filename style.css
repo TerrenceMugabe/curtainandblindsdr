@@ -292,7 +292,22 @@ em { font-style: italic; }
 .why-card h4 { margin-bottom:7px; }
 .why-card p { font-size:.875rem; font-weight:300; line-height:1.7; color:var(--ink-mid); }
 @media (max-width:768px){ .why-grid{ grid-template-columns:1fr 1fr; } .why-card:nth-child(3n){ border-right:inherit; } .why-card:nth-child(2n){ border-right:none; } .why-card:nth-child(n+5){ border-bottom:none; } .why-card:nth-child(5){ border-bottom:1px solid var(--rule); } }
-@media (max-width:460px){ .why-grid{ grid-template-columns:1fr; } .why-card{ border-right:none !important; } .why-card:last-child{ border-bottom:none; } }
+@media (max-width:460px){ 
+    .why-grid{ 
+        grid-template-columns:1fr; 
+    } 
+    .why-card{ 
+        border-right:none !important; 
+    } 
+    .why-card:last-child{ 
+        border-bottom:none; 
+    } 
+    
+    /* Hides the 4th, 5th, and 6th cards on mobile */
+    .why-card:nth-child(n+4) {
+        display: none;
+    }
+}
 
 /* ── Reviews ── */
 .reviews-desktop { display:grid; grid-template-columns:repeat(3,1fr); border:1px solid var(--rule); }
