@@ -224,7 +224,20 @@ em { font-style: italic; }
 .process-card:hover .process-num { color:var(--gold-light); }
 .process-card h3 { margin-bottom:10px; color:var(--ink); }
 .process-card p  { font-size:.875rem; font-weight:300; line-height:1.75; color:var(--ink-mid); }
-.process-chip { display:inline-flex; align-items:center; gap:7px; margin-top:18px; padding:7px 12px; border:1px solid var(--rule-dark); font-size:9px; font-weight:600; letter-spacing:.18em; text-transform:uppercase; color:var(--ink-muted); background:var(--linen-mid); }
+.process-chip { 
+    display: inline-flex; 
+    align-items: center; 
+    gap: 7px; 
+    margin-top: 18px; 
+    padding: 7px 12px; 
+    border: 1px solid var(--terra-deep); 
+    font-size: 9px; 
+    font-weight: 600; 
+    letter-spacing: .18em; 
+    text-transform: uppercase; 
+    color: #FFFFFF;                      
+    background: var(--terra);            
+}
 @media (max-width:768px){
   .process-grid { grid-template-columns:1fr; border:none; gap:1px; background:var(--rule); }
   .process-card { border-right:none; border-bottom:none; background:var(--canvas); }
