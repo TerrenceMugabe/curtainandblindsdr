@@ -2,6 +2,7 @@
 (function () {
   const btn   = document.getElementById('navHamburger');
   const nav   = document.getElementById('mobileNav');
+  const closeBtn = document.getElementById('mobileNavClose');
   if (!btn || !nav) return;
 
   function closeNav() {
@@ -20,6 +21,7 @@
   btn.addEventListener('click', () => {
     nav.classList.contains('open') ? closeNav() : openNav();
   });
+  closeBtn && closeBtn.addEventListener('click', closeNav);
 
   nav.querySelectorAll('a').forEach(a => a.addEventListener('click', closeNav));
   document.addEventListener('keydown', e => { if (e.key === 'Escape') closeNav(); });
